@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title id="title"></title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="renderer" content="webkit">
+	<meta name="viewport" content="width=640,user-scalable=no,target-densitydpi=device-dpi">
+	<meta name="x5-orientation" content="portrait">
+	<meta name="Generator" contect="sublime text 3">
+	<meta http-equiv="Content-Language" contect="zh-CN"> 
+	<meta http-equiv="windows-Target" contect="_top">
+	<meta name="keywords" content="keyword,keyword">
+	<meta name="description" content="your description">
+	<meta name="author" content="Cynthia,2015-08-26">
+	<link rel="shortcut icon" href="img/ico.png" type="image/x-icon" />
+	<link rel="stylesheet" href="css/global.css">
+	<script src="js/jquery-1.11.1.min.js"></script>
+    <div id='wx_pic' style='margin:0 auto;display:none;'>
+      <img src='img/wx.jpg' />
+  </div>
+</head>
+<body>
+	<div class="war2">
+
+
+
+		<!-- 头图 BEGIN -->
+		<section>
+			<img src="img/top.png" alt="" class="top">
+		</section>
+		<!-- 头图 END-->
+
+
+		<!-- 返回作战中心 BEGIN -->
+		<section>
+			<div class="layout08">
+				<a href="" class="f_r"></a>
+			</div>
+		</section>
+		<!-- 返回作战中心 END -->
+
+
+
+		<!-- 提示信息 BEGIN -->
+		<section>
+			<div class="layout09">
+				<p>您的好友<label for="">cynthia</label>正在进行抗日十大战役(<label for="">---长沙会战---</label>)邀请您的支援</p>
+			</div>
+		</section>
+		<!-- 提示信息 END -->
+
+
+		<!-- 个人战况信息 BEGIN -->
+		<section>
+			<div class="layout13">
+
+				<!-- 1  -->
+				<div class="layout13-left f_l">
+					<img src="img/lay10-img-1.png" alt="">
+				</div>
+				<div class="layout13-right f_l">
+					<img src="img/lay10-img-5.png" alt="">
+					<img src="img/lay10-img-5.png" alt="">
+					<img src="img/lay10-img-5.png" alt="">
+				</div>
+				<div class="layout13-right-btn f_l">
+					<a href=""></a>
+				</div>
+
+
+				<!-- 2  -->
+				<div class="layout13-left f_l">
+					<img src="img/lay10-img-2.png" alt="">
+				</div>
+				<div class="layout13-right f_l">
+					
+				</div>
+				<div class="layout13-right-btn f_l">
+					<a href=""></a>
+				</div>
+
+				
+				<!-- 3  -->
+				<div class="layout13-left f_l">
+					<img src="img/lay10-img-3.png" alt="">
+				</div>
+				<div class="layout13-right f_l">
+					<img src="img/lay10-img-5.png" alt="">
+					<img src="img/lay10-img-5.png" alt="">
+				</div>
+				<div class="layout13-right-btn f_l">
+					<a href=""></a>
+				</div>
+
+				
+				<!-- 4  -->
+				<div class="layout13-left f_l">
+					<img src="img/lay10-img-4.png" alt="">
+				</div>
+				<div class="layout13-right2 f_l"></div>
+				<div class="layout13-right-btn f_l">
+					<a href=""></a>
+				</div>
+
+			</div>
+		</section>
+		<!-- 个人战况信息 END -->
+
+		
+	
+
+
+	</div>
+</body>
+<script>
+	var username;
+	document.getElementById('title').innerHTML = username +"正在进行百团大战，请求支援，请求支援！";
+</script>
+<!-- 微信分享 BEGIN -->
+<script type="text/javascript">
+    function setWeixin(data) {
+        var _gticket = data.msg;
+        var _gUrl = window.location.href
+        var _arr1 = _gticket.split('=')
+        var _arr2 = [];
+        for (var i = 0; i < _arr1.length; i++) {
+            var s = _arr1[i].split('&')
+            _arr2.push(s);
+        };
+        var _newticket = "jsapi_ticket=" + _arr2[1][0] + "&noncestr=" + _arr2[2][0] + "&timestamp=" + _arr2[3][0] + "&url=" + _gUrl
+        var sig = hex_sha1(_newticket)
+        wx.config({
+            debug: false,
+            appId: 'wxb800a407ce1fc31d',
+            timestamp: _arr2[3][0],
+            nonceStr: _arr2[2][0],
+            signature: sig,
+            jsApiList: [
+                'checkJsApi',
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'onMenuShareQQ',
+                'onMenuShareWeibo',
+                'hideMenuItems',
+                'showMenuItems'
+            ]
+        });
+
+        wx.ready(function() {
+            var wxData = {
+                title: '',
+                desc: '', 
+                link: '', //分享链接
+                imgUrl: 'img/wx.jpg'  //分享图片
+            }
+            wx.checkJsApi({
+                jsApiList: [
+                    'checkJsApi',
+                    'onMenuShareTimeline',
+                    'onMenuShareAppMessage',
+                    'onMenuShareQQ',
+                    'onMenuShareWeibo',
+                    'hideMenuItems',
+                    'showMenuItems'
+                ],
+                success: function(res) {
+                    console.log(JSON.stringify(res));
+                }
+            });
+            wx.onMenuShareAppMessage({
+                title: wxData.title,
+                desc: wxData.desc,
+                link: wxData.link,
+                imgUrl: wxData.imgUrl,
+                trigger: function(res) {
+                },
+                success: function(res) {
+                    $('.sharepic').hide();
+                },
+                fail: function(res) {
+                    console.log(JSON.stringify(res));
+                }
+            });
+            wx.onMenuShareTimeline({
+                title: wxData.title, // 分享标题
+                link: wxData.link, // 分享链接
+                imgUrl: wxData.imgUrl, // 分享图标
+                success: function() {
+                    $('.sharepic').hide();
+                }
+            });
+            wx.onMenuShareQQ({
+                title: wxData.title, // 分享标题
+                desc: wxData.desc, // 分享描述
+                link: wxData.link, // 分享链接
+                imgUrl: wxData.imgUrl, // 分享图标
+                success: function() {
+                   $('.sharepic').hide();
+                },
+                cancel: function() {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+            wx.onMenuShareWeibo({
+                title: wxData.title, // 分享标题
+                desc: wxData.desc, // 分享描述
+                link: wxData.link, // 分享链接
+                imgUrl: wxData.imgUrl,
+                success: function() {
+                    $('.sharepic').hide();
+                },
+                cancel: function() {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        });
+    }
+    $.ajax({
+        url: '', //分享链接
+        type: 'get',
+        dataType: "jsonp",
+        jsonpCallback: "jsonp_success",
+        success: function(data) {
+            setWeixin(data)
+        }
+    })
+</script>
+<!-- 微信分享 END -->
+</html>

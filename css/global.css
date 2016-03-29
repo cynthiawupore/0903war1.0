@@ -1,0 +1,164 @@
+*{padding: 0;margin: 0;border: 0;outline: none;}
+body{}
+.f_l{float: left;}
+.f_r{float: right;}
+
+input{-webkit-appearance: none;
+ 	border-radius：0px;
+    -webkit-border-radius:0px;
+    cursor: pointer;
+}
+li{list-style: none;}
+
+.gray {
+-webkit-filter: grayscale(100%);
+-moz-filter: grayscale(100%);
+-ms-filter: grayscale(100%);
+-o-filter: grayscale(100%);
+filter: grayscale(100%);
+filter: gray;
+}
+.war{width: 640px;height: 1986px;;background: url(../img/bg.png) repeat-y;margin: 0 auto;position: relative;}
+	.war label{font-size: 24px;color: #910300;font-family: '微软雅黑';font-weight: bold;}
+
+
+
+/*头图 BEGIN*/
+.top{width: 640px;height: 181px;}
+/*头图 END*/
+
+
+/*一键关注 玩法说明 BEGIN*/
+.layout01{width: 530px;height: 40px;margin-top: 25px;padding-left: 60px;}
+	.layout01 input{width:138px;height: 40px;}
+	.lay01-btn-1{background: url(../img/b1.png) center no-repeat;}
+	.lay01-btn-2{background: url(../img/b2.png) center no-repeat;}
+/*一键关注 玩法说明 END*/
+
+
+/*十大战役 BEGIN*/
+.layout02{width: 610px;height: 1250px;margin: 25px 0px;padding-left:30px;margin-top: 0px;}	
+	.layout02 li{position: relative;width: 237px;height: 205px;text-align: center;float: left;margin: 0px 30px;margin-top: 40px}
+	.imgbox{width: 227px;height: 155px;border: 3px solid #910300;border-radius: 15px;overflow: hidden;}
+	.layout02 li img{width: 227px;height: 155px;}
+	.layout02 li h1{color: #910300;font-weight: bold;display: inline-block;}
+	.win{position: absolute;top: 0px;left: 0px;z-index: 1}
+	.going{position: absolute;top: 0px;left: 0px;z-index: 1}
+	.game-name{width: 227px;height: 30px;line-height: 30px; text-align: center;position: relative;margin-top: 15px;}
+	.game-name a{position: absolute;top: 0px;right:32px;width: 30px;height: 30px;display: block;background: url(../img/yuanzhu.png) center no-repeat;}
+
+
+/*十大战役 END*/
+
+
+/*领取师大战役奖励 BEGIN*/
+.layout03{width: 640px;height: 100px;}
+	.lay03-btn-1{width: 281px;height: 72px;background: url(../img/b3.png);float: left;margin-left: 150px;}
+	.pro{width: 100px;height: 72px;line-height: 72px;float: left;}
+/*领取师大战役奖励 END*/
+
+
+/*玩法说明 弹窗 BEIGN*/
+.guide{position: absolute;top: 280px;left: 35px;z-index: 2;}
+/*玩法说明 弹窗*/
+
+
+/*直接开战  请求支援 弹窗 BEIGN*/
+.layout04{position: fixed;width: 100%;height: 100%;left: 0px;top:0px;background: rgba(0, 0, 0, 0);z-index: 2;}   	
+	.layout04-box{width: 550px;height: 305px;position: absolute;left: 50%;top:50%;margin-left:-275px;margin-top: -152px;background: #fff; border-radius: 15px;border:3px #910300 solid;text-align: center;}
+		.layout04-box input{width: 223px;height: 69px;margin-top: 25px;}
+		.lay04-btn-1{background: url(../img/f2-btn-1.png) center no-repeat;margin-left: 30px}
+		.lay04-btn-2{background: url(../img/f2-btn-2.png) center no-repeat;}
+		.lay04-btn-3{background: url(../img/f2-btn-3.png) center no-repeat;}
+		.lay04-fc{width: 36px;height: 36px;cursor: pointer;}
+/*直接开战  请求支援 弹窗 END*/
+
+
+/*登录 弹窗 BEIGN */
+.layout05{position: fixed;width: 100%;height: 100%;left: 0px;top:0px;background: rgba(0, 0, 0, 0);z-index: 2;}   
+	.layout05 p{text-align: center;font-size: 20px;margin-top: 10px;color: #AF0000;}	
+	.layout05-box{width: 550px;height: 456px;position: absolute;left: 50%;top:50%;margin-left:-275px;margin-top: -228px;background: #fff; border-radius: 15px;border:3px #910300 solid;}
+	.btn-style-t{width: 411px;height: 61px;padding-left: 15px;background: #fff;color: #cdcdcd;font-size: 30px;font-family: "微软雅黑";margin-left: 62px;border:1px #ddd solid;margin-top: 20px}
+	.btn-style-s{background: url(../img/lay05-img-2.png) center no-repeat;width: 188px;height: 50px;margin-top: 20px;margin-left: 62px;}
+	.btn-style-b{background: url(../img/lay05-img-3.png) center no-repeat;width: 188px;height: 50px;margin-top: 20px;margin-left: 48px;}
+	.lay05-fc{width: 36px;height: 36px;cursor: pointer;}
+/*登录 弹窗 END*/
+
+
+/*注册 弹窗 BEIGN*/
+.layout06{position: fixed;width: 100%;height: 100%;left: 0px;top:0px;background: rgba(0, 0, 0, 0);z-index: 2;}   	
+	.layout06-box{width: 550px;height: 556px;position: absolute;left: 50%;top:50%;margin-left:-275px;margin-top: -278px;background: #fff; border-radius: 15px;border:3px #910300 solid;}
+	.lay06-fc{width: 36px;height: 36px;cursor: pointer;}
+	.btn-style-s-2{background: url(../img/lay06-img-2.png) center no-repeat;width: 188px;height: 50px;margin-top: 20px;margin-left: 62px;}
+	.btn-style-b-2{background: url(../img/lay06-img-3.png) center no-repeat;width: 188px;height: 50px;margin-top: 20px;margin-left: 48px;}
+/*注册 弹窗 END*/
+
+
+/*输入指挥官名称 BEIGN*/
+.layout07{position: fixed;width: 100%;height: 100%;left: 0px;top:0px;background: rgba(0, 0, 0, 0);z-index: 2;}   	
+	.layout07-box{width: 550px;height: 386px;position: absolute;left: 50%;top:50%;margin-left:-275px;margin-top: -193px;background: #fff; border-radius: 15px;border:3px #910300 solid;}
+	.lay07-fc{width: 36px;height: 36px;cursor: pointer;}
+	.btn-style-s-3{background: url(../img/lay07-img-2.png) center no-repeat;width: 188px;height: 50px;margin-top: 20px;margin-left: 182px;}
+/*输入指挥官名称 END*/
+
+/*二维码 begin*/
+.CR{width: 640px;height: 300px;text-align: center;}
+/*二维码 end*/
+
+
+
+
+
+/*#######################请求支援页面 BEGIN*/
+
+
+.war2{width: 640px;height: 1206px;background: url(../img/bg.png) repeat-y;margin: 0 auto;position: relative;}
+
+
+
+ /*返回作战中心 BEGIN */
+.layout08{width: 590px;height: 42px;padding: 0px 25px;}
+	.layout08 a{display: block;width: 135px;height: 42px;background: url(../img/lay08-btn-2.png) center no-repeat;}
+/*返回作战中心 END*/
+
+
+/*提示信息 BEGIN*/
+.layout09{width: 590px;height: auto;overflow: auto;padding: 0px 25px;text-align: center;line-height: 70px}
+	.layout09 p{font-family: '微软雅黑';font-size: 20px;color: #910300;font-weight: bold;}
+/*.提示信息 END*/
+
+
+/*个人战况信息 BEGIN*/
+.layout10{width: 455px;height: 428px;margin: 0 auto;margin-top: 30px;}
+	.layout10-left{width: 143px;height: 107px;}
+	.layout10-right{width: 312px;height: 107px;background: url(../img/lay10-img-bg.png) center no-repeat;}
+	.layout10-right img{width: 104px;height: 107px;float: left;}
+	.layout10-right2{width: 312px;height: 107px;background: url(../img/lay10-img-bg2.png) center no-repeat;}
+/*个人战况信息 END*/
+
+
+/*请求支援 BEGIN*/
+.layout11{width: 470px;height: 75px;margin: 0 auto;margin-top: 50px;}
+	.lay11-img-1{width: 225px;height: 74px;display: block;background: url(../img/lay11-img-1.png) center no-repeat;}
+	.lay11-img-2{width: 225px;height: 74px;display: block;background: url(../img/lay11-img-2.png) center no-repeat;}
+/*请求支援 END*/
+
+
+
+/*请求支援 BEGIN*/
+.layout12{width: 640px;height: 30px;line-height: 30px;text-align: center;margin-top: 30px;}
+	.layout12 p{font-family: "微软雅黑";font-size: 24px;color: #af0000}
+	.akHelp-fade{position: fixed;top: 0px;left: 0px;width:100%;height: 100%;z-index: 9999999;background: rgba(0, 0, 0, 0.7);}
+		.akHelp-fade img{float: right;width: 500px;}
+/*请求支援 END*/
+
+
+/*支援别人 BEGIN*/
+.layout13{width: 585px;height: 428px;margin: 0 auto;margin-top: 30px;}
+	.layout13-left{width: 143px;height: 107px;}
+	.layout13-right{width: 312px;height: 107px;background: url(../img/lay10-img-bg.png) center no-repeat;}
+	.layout13-right img{width: 104px;height: 107px;float: left;}
+	.layout13-right2{width: 312px;height: 107px;background: url(../img/lay10-img-bg2.png) center no-repeat;}
+	.layout13-right-btn{width: 130px;height: 107px;background: url(../img/lay13-img-1.png) center no-repeat;}
+/*支援别人 END*/
+/*#######################请求支援页面 END*/

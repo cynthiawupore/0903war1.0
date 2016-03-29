@@ -1,0 +1,359 @@
+<!doctype html>
+<html><head>
+			<meta charset="UTF-8">
+			<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,minimal-ui">
+			<meta http-equiv="pragma" content="no-cache">
+			<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+			<meta http-equiv="expires" content="-1">
+			<title>一起寻找日军奸细</title>
+			<link rel="stylesheet" type="text/css" href="css/m.min.css">
+		<style>
+		html,body,{
+			margin: 0px;
+			padding: 0px;
+			border:none;
+			text-align: center;
+
+		}
+		#container{
+		height:90%;
+		
+		}
+		#share-wx{
+			background:rgba(0,0,0,0.8);
+			position:absolute;top:0px;
+			left:0px;
+			width:100%;
+			height:100%;
+			z-index:10000;
+			display:none;
+		}
+		#wx-qr{
+			background:rgba(0,0,0,0.8);
+			position:absolute;top:0px;
+			left:0px;
+			width:100%;
+			height:100%;
+			z-index:10000;
+			display:none;
+		}
+.lis{overflow: hidden;width: 100%;z-index: 99999;position: absolute;top:0;right:0;left:1}
+.lis a{display: block;width:100%;color:#ffffff;font-size:14px;text-decoration: none;background:#606783;text-align: center;opacity: 0.5;line-height:30px;font-weight: bold;font-family:"微软雅黑"}
+.lis a img{position: relative;top: 1px;}
+.ads{overflow: hidden;width: 100%;z-index: 999999;position: absolute;bottom:0;right:1}
+ 
+
+ .cynthia{position: fixed;top: 0px;left: 0px;width: 100%;height: 100%;background: rgba(0, 0, 0, 1);font-family: "微软雅黑";z-index: 9999999;background: url(fbg.png);}
+          .wuqian1{width: 314px;height: 200px;position: absolute;left: 50%;top: 50%;margin-left: -160px;margin-top: -100px;background: #fff;border-radius: 15px;border: 3px #910300 solid;text-align: center;}
+          .wuqian1 h1{text-align: center;color: #910300;font-size: 36px;padding: 15px 0px}
+          .a1{background: url(jl.png);width: 133px;height: 39px;display: block;margin-left: 90px;}
+  
+          
+          .wuqian2{width: 314px;height: 280px;position: absolute;left: 50%;top: 50%;margin-left: -160px;margin-top: -140px;background: #fff;border-radius: 15px;border: 3px #910300 solid;text-align: center;}
+          .wuqian2 h1{text-align: center;color: #910300;font-size: 36px;padding: 15px 0px}
+          .a2{background: url(jixu.png);width: 183px;height: 45px;display: block;margin-left: 60px;}
+          .a3{background: url(zy.png);width: 183px;height: 45px;display: block;margin-left: 60px;}
+
+
+
+    </style></head>
+
+
+		
+<body>
+
+
+<!--div class="lis">
+		<div style="float: left;width:33%;"><a style="border-bottom: 3px solid #fd6766;" href="/list/">游戏列表</a></div>
+		<div style="float: left;width:34%;"><a style="border-bottom: 3px solid #04fece;" href="/jump/zjkbst.do">关注收藏</a></div>
+		<div style="float: left;width:33%;"><a style="width:100%;margin:0;border-bottom: 3px solid #fdcd01;" onclick="location.href=location.href;" href="javascript:;" ><img width="15" src="4.png">重玩</a></div>
+</div-->
+
+	<div id="container">
+<div class="grid">
+        <div class="page hide" id="loading" style="display: none;">
+            <div class="loading-txt">加载中...</div>
+        </div>
+        <div class="page hide" id="index" style="display: block;">
+            <h1>一起寻找日军奸细</h1>
+
+            <div id="help">在众多<span style="font-size:240%">军人</span>中找到唯一的<span style="font-size:240%">日军奸细</span></div>
+            <div class="btns">
+                <button data-type="color" class="btn play-btn">
+                    开始游戏
+                </button>
+				
+            </div>
+        </div>
+        <div class="page hide" id="room">
+            <header>
+                <span class="lv">
+                    过关：
+                    <em>
+                        1
+                    </em>
+                </span>
+                <span class="time">
+                </span>
+               <span class="btn btn-pause">
+                    暂停
+                </span>
+				
+            </header>
+            <div id="box" class="lv1">
+            </div>
+        </div>
+        <div class="page hide" id="dialog">
+        <div class="inner">
+                <div class="content gameover">
+                    <div class="inner-content">
+                        
+                        <h3></h3>
+                        <div class="btn-wrap">
+                            <button class="btn btn-restart">
+                                再来一次
+                            </button>
+							
+                        </div>
+						
+						
+                    </div>
+                </div>
+                <div class="content pause">
+                    <div class="inner-content">
+                        
+                        <h3>
+                            游戏暂停
+                        </h3>
+                        <div class="btn-wrap">
+                            <button class="btn btn-resume">
+                                继续游戏
+                            </button>
+							
+
+                        </div>
+						
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    </div>
+	<div id="share" style="display: none">
+			
+	</div>
+</div>
+
+ <script language="javascript">
+		var mebtnopenurl = 'http://cnhklm.com/game';
+		window.shareData = {
+		        "imgUrl": "http://www.lehetj.com/game/html5youxi/jolin/icon.png",
+		        "timeLineLink": "http://www.lehetj.com/game/html5youxi/jolin",
+		        "tTitle": "一起寻找日军奸细，众多军人里找日军奸细，我果然是火眼金睛呀!",
+		        "tContent": "一起寻找日军奸细，众多军人里找日军奸细，我果然是火眼金睛呀!"
+		};
+				
+		function goHome(){
+			window.location=mebtnopenurl;
+		}
+		function clickMore(){
+			if((window.location+"").indexOf("zf",1)>0){
+				window.location = "http://www.lehetj.com/game/html5";
+			 }
+			 else{
+				goHome();
+			 }
+		}
+		function dp_share(){
+			document.title ="众多军人里找日军奸细!哇哦，被我找到"+myData.score+"个日军奸细，你行么？";
+			document.getElementById("share").style.display="";
+			window.shareData.tTitle = document.title;
+		}
+		function dp_Ranking(){
+			window.location=mebtnopenurl;
+		}
+
+		function showAd(){
+		}
+		function hideAd(){
+		}
+		document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+		    
+		    WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+		        WeixinJSBridge.invoke('sendAppMessage', {
+		            "img_url": window.shareData.imgUrl,
+		            "link": window.shareData.timeLineLink,
+		            "desc": window.shareData.tContent,
+		            "title": window.shareData.tTitle
+		        }, onShareComplete);
+		    });
+
+		    WeixinJSBridge.on('menu:share:timeline', function(argv) {
+		        WeixinJSBridge.invoke('shareTimeline', {
+		            "img_url": window.shareData.imgUrl,
+		            "img_width": "640",
+		            "img_height": "640",
+		            "link": window.shareData.timeLineLink,
+		            "desc": window.shareData.tContent,
+		            "title": window.shareData.tTitle
+		        }, onShareComplete);
+		    });
+		}, false);
+		</script>
+		<div style="display: none;">
+			<script type="text/javascript">
+            var myData = { gameid: "djyqlzmz" };
+			//window.shareData.timeLineLink = "http://game.9g.com/gamecenter.html?gameid=" + myData.gameid + (localStorage.myuid ? "&uid=" + localStorage.myuid : "");
+			function dp_submitScore(score){
+				myData.score = score;
+				myData.scoreName ="找到"+score+"次日军奸细";
+
+				// cynthia beign
+				if(score > 40){
+					// confirm("70星愿卷*1")
+					 document.getElementById('cynthia-s').style.display = "block"
+				}
+				if(score <= 40){
+					// confirm("失败")
+					 document.getElementById('cynthia-f').style.display = "block"
+				}
+				// cynthia end
+				
+			}
+			function onShareComplete(res) {
+                if (localStorage.myuid && myData.score != undefined) {
+                    setTimeout(function(){
+                        if (confirm("要将成绩分享到朋友圈吗？")) {
+                         //   window.location = "http://wx.9g.com/rank/submit2.jsp?gameid=" + myData.gameid + "&uid=" + localStorage.myuid + "&score=" + myData.score + "&scorename=" + encodeURIComponent(myData.scoreName);
+                        }
+                        else {
+                            document.location.href = mebtnopenurl;
+                        }
+                    }, 500);
+                }
+				else {
+		        	document.location.href = mebtnopenurl;
+				}
+	        }
+			</script>
+
+
+
+
+
+			
+
+
+<script id="tpl" type="text/html">
+<div class="grid">
+        <div class="page hide" id="loading">
+            <div class="loading-txt"><%=loading%></div>
+        </div>
+        <div class="page hide" id="index">
+            <h1><%=title%></h1>
+
+            <div id="help"><%=help_txt%></div>
+            <div class="btns">
+                <button data-type="color" class="btn play-btn">
+                    <%=btn_start%>
+                </button>
+				<a href="javascript:void(0);"  onclick="clickMore();" class="btn btn-boyaa">
+								<%=btn_more_game%>
+				</a>
+            </div>
+        </div>
+        <div class="page hide" id="room">
+            <header>
+                <span class="lv">
+                    <%=score%>
+                    <em>
+                        1
+                    </em>
+                </span>
+                <span class="time">
+                </span>
+               <span class="btn btn-pause">
+                    <%=btn_pause%>
+                </span>
+				
+            </header>
+            <div id="box" class="lv1">
+            </div>
+        </div>
+        <div class="page hide" id="dialog">
+        <div class="inner">
+                <div class="content gameover">
+                    <div class="inner-content">
+                        
+                        <h3></h3>
+                        <div class="btn-wrap">
+                            <button class="btn btn-restart">
+                                <%=btn_reTry%>
+                            </button>
+							<a href="javascript:void(0);" onclick="clickMore();" class="btn btn-boyaa">
+								<%=btn_more_game%>
+							</a>
+                        </div>
+						
+						
+                    </div>
+                </div>
+                <div class="content pause">
+                    <div class="inner-content">
+                        
+                        <h3>
+                            <%=game_pause%>
+                        </h3>
+                        <div class="btn-wrap">
+                            <button class="btn btn-resume">
+                                <%=btn_resume%>
+                            </button>
+							<a href="javascript:void(0);" onclick="clickMore();" class="btn btn-boyaa">
+								<%=btn_more_game%>
+							</a>
+
+                        </div>
+						
+                    </div>
+                </div>
+            </div>
+    </ins>
+        </div>
+    </div>
+	<div id=share style="display: none">
+			<img width=100% src="share.png"
+				style="position: fixed; z-index: 9999; top: 0; left: 0; display: "
+				ontouchstart="document.getElementById('share').style.display='none';" />
+	</div>
+</script>
+<script src="js/libs.min.js"></script>
+<script src="js/l.js"></script>
+<script type="text/javascript">
+var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="//hm.baidu.com/hm.js?fa356a94bf5ae253b76fefa953bb56e4";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm, s);})();
+</script>
+<script src="js/main.min.js"></script>
+
+
+<!--百度-->
+<div style="display: none;">
+ 
+</div>
+<!--百度--></div></body>
+
+
+<div class="cynthia cynthia-s" id="cynthia-s" style="display:none">
+		<div class="wuqian1">
+			<h1>挑战成功!</h1>
+			<a href="" class="a1"></a>
+		</div>
+	</div>
+	<div class="cynthia cynthia-f" id="cynthia-f" style="display:none">
+		<div class="wuqian2">
+			<h1>挑战失败</h1>
+			<a href="index.html" class="a2"></a><br>
+			<a href="../../../support.html" class="a3"></a>
+		</div>
+	</div>
+
+
+</html>

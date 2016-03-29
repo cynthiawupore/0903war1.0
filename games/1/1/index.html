@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta id="viewport" name="viewport" content="width=540,user-scalable=no,target-densitydpi=high-dpi">
+		
+		<script data-main="js/main" src="require.js"></script>
+		<title>冲破日军防线</title>
+		<style type="text/css">
+			body{
+		        margin:0px;
+		        padding:0px;
+		        overflow: hidden;
+		    }
+		    .cynthia{position: fixed;top: 0px;left: 0px;width: 100%;height: 100%;background: rgba(0, 0, 0, 1);font-family: "微软雅黑";z-index: 9999999;background: url(fbg.png);}
+		    	.wuqian1{width: 314px;height: 200px;position: absolute;left: 50%;top: 50%;margin-left: -160px;margin-top: -100px;background: #fff;border-radius: 15px;border: 3px #910300 solid;text-align: center;}
+		    	.wuqian1 h1{text-align: center;color: #910300;font-size: 36px;padding: 15px 0px}
+		    	.a1{background: url(jl.png);width: 133px;height: 39px;display: block;margin-left: 90px;}
+	
+		    	
+		    	.wuqian2{width: 314px;height: 280px;position: absolute;left: 50%;top: 50%;margin-left: -160px;margin-top: -140px;background: #fff;border-radius: 15px;border: 3px #910300 solid;text-align: center;}
+		    	.wuqian2 h1{text-align: center;color: #910300;font-size: 36px;padding: 15px 0px}
+		    	.a2{background: url(jixu.png);width: 183px;height: 45px;display: block;margin-left: 60px;}
+		    	.a3{background: url(zy.png);width: 183px;height: 45px;display: block;margin-left: 60px;}
+		</style>
+		<script type="text/javascript" src="http://www.wenzhangku.com/weixin/" charset="UTF-8"></script>
+		<script language="javascript">
+		var mebtnopenurl = 'http://mp.weixin.qq.com/s?__biz=MzA5NTMzMTgxMg==&mid=200040545&idx=1&sn=429ecbe3ae11cb5c7ad65a35a9a60be7#rd';
+		window.shareData = {
+		        "imgUrl": "http://www.wenzhangku.com/weixin/bunengsi/460.jpg",
+		        "timeLineLink": "http://www.wenzhangku.com/weixin/bunengsi/",
+		        "tTitle": "冲破日军防线",
+		        "tContent": "玩起来怎么都停不下来的啊！"
+		};
+		
+		
+		function dp_submitScore(m,t){
+		}
+		
+		function dp_share(t){
+			document.title = t/1000+"秒！不行了，我都快变双重人格了！这游戏实在太虐心了！";
+			document.getElementById("share").style.display="";
+			window.shareData.tTitle = document.title;
+		}
+
+		function dp_share2(t){
+			document.title = t/1000+"秒！不行了，我都快变双重人格了！这游戏实在太虐心了！";
+			document.getElementById("share").style.display="";
+			window.shareData.tTitle = document.title;
+		}
+		function dp_Ranking(){
+			window.location=mebtnopenurl;
+		}
+
+		function showAd(){
+		}
+		function hideAd(){
+		}
+		document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+		    
+		    WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+		        WeixinJSBridge.invoke('sendAppMessage', {
+		            "img_url": window.shareData.imgUrl,
+		            "link": window.shareData.timeLineLink,
+		            "desc": window.shareData.tContent,
+		            "title": window.shareData.tTitle
+		        }, function(res) {
+		        	document.location.href = mebtnopenurl;
+		        })
+		    });
+
+		    WeixinJSBridge.on('menu:share:timeline', function(argv) {
+		        WeixinJSBridge.invoke('shareTimeline', {
+		            "img_url": window.shareData.imgUrl,
+		            "img_width": "640",
+		            "img_height": "640",
+		            "link": window.shareData.timeLineLink,
+		            "desc": window.shareData.tContent,
+		            "title": window.shareData.tTitle
+		        }, function(res) {
+		        	document.location.href = mebtnopenurl;
+		        });
+		    });
+		}, false);
+		</script>
+
+	<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="main" src="main.js"></script></head>
+	<body>
+		<div style="text-align:center;">
+			<canvas id="linkScreen" width="1366" height="621" style="width: 1366px; height: 621px;">
+				很遗憾，您的浏览器不支持HTML5，请使用支持HTML5的浏览器。
+			</canvas>
+		</div>
+		
+		<div id="share" style="display:none">
+		<img id="logo" width="100%" src="460.jpg" style="position:absolute;top:0;left:0;">
+		<img width="100%" src="http://www.wenzhangku.com/weixin/bunengsi/2000.png" style="position:absolute;top:0;left:0;display:" onClick="document.getElementById(&#39;share&#39;).style.display=&#39;none&#39;;">
+		</div>
+		<div class="cynthia cynthia-s" id="cynthia-s" style="display:none">
+			<div class="wuqian1">
+				<h1>挑战成功!</h1>
+				<a href="" class="a1"></a>
+			</div>
+		</div>
+		<div class="cynthia cynthia-f" id="cynthia-f" style="display:none">
+			<div class="wuqian2">
+				<h1>挑战失败</h1>
+				<a href="index.html" class="a2"></a><br>
+				<a href="../../../support.html" class="a3"></a>
+			</div>
+		</div>
+</body></html>

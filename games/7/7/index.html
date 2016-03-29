@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en" style="min-height: 568px;">
+ <head> 
+  <title>敌军大消除</title> 
+  <meta charset="utf-8" /> 
+  <meta name="apple-mobile-web-app-capable" content="yes" /> 
+  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no,width=device-width,minimal-ui" /> 
+  <link rel="shortcut icon" href="icon.png" /> 
+  <link rel="icon" href="icon.png" /> 
+  <style>
+		body {
+			margin: 0px;
+			padding: 0px;
+			width: 100%;
+			background-color:black;
+		}
+
+		canvas {
+			image-rendering: -o-crisp-edges;
+			image-rendering: optimize-contrast;
+			-ms-interpolation-mode: nearest-neighbor;
+			-webkit-tap-highlight-color: rgba(0,0,0,0);
+			-moz-tap-highlight-color: rgba(0,0,0,0);
+			tap-highlight-color: rgba(0,0,0,0);
+			user-select: none;
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+		}
+		.cynthia{position: fixed;top: 0px;left: 0px;width: 100%;height: 100%;background: rgba(0, 0, 0, 1);font-family: "微软雅黑";z-index: 9999999;background: url(fbg.png);}
+		    	.wuqian1{width: 314px;height: 200px;position: absolute;left: 50%;top: 50%;margin-left: -160px;margin-top: -100px;background: #fff;border-radius: 15px;border: 3px #910300 solid;text-align: center;}
+		    	.wuqian1 h1{text-align: center;color: #910300;font-size: 36px;padding: 15px 0px}
+		    	.a1{background: url(jl.png);width: 133px;height: 39px;display: block;margin-left: 90px;}
+	
+		    	
+		    	.wuqian2{width: 314px;height: 280px;position: absolute;left: 50%;top: 50%;margin-left: -160px;margin-top: -140px;background: #fff;border-radius: 15px;border: 3px #910300 solid;text-align: center;}
+		    	.wuqian2 h1{text-align: center;color: #910300;font-size: 36px;padding: 15px 0px}
+		    	.a2{background: url(jixu.png);width: 183px;height: 45px;display: block;margin-left: 60px;}
+		    	.a3{background: url(zy.png);width: 183px;height: 45px;display: block;margin-left: 60px;}
+	</style> 
+  <script src="js/viewporter.js"></script> 
+  <script>
+    // Kaisergames API development prototype
+    // make sure this code is executed before the game calls any kaisergames.* methods!
+    if (typeof window !== "undefined" && !window.kaisergames){
+        window.kaisergames = new function(){
+            return {
+                /**
+                 * @param level string[optional]
+                 * @param score number[optional]
+                 */
+                gameOver: function(level, score) {
+                    if (!level) level = "-";
+                },
+
+                /**
+                 * @param level string[optional]
+                 * @param score number[optional]
+                 */
+                levelUp: function(level, score) {
+                    if (!level) level = "-";
+                },
+
+                /**
+                 * @param level string
+                 * @param score number
+                 */
+                submitHighscore: function(level, score) {
+                    if (!level) level = "-";
+                    
+                }
+            }
+        }
+    }
+    </script> 
+ </head> 
+ <body> 
+  <div id="viewporter" style="margin-top: 0px; margin-left: 0px; position: relative; height: 568px;"> 
+   <canvas id="canvas" moz-opaque="" width="383" height="550" style="width: 320px; height: 568px;"></canvas> 
+  </div> 
+  <input id="bt-game-id" type="hidden" value="8-ball" /> 
+  <div id="moregame" style="position: fixed; z-index: 99; bottom: 20px; left: 0px; font-size: 20px; width: 100%; text-align: center; display: none;"> 
+ 
+  </div> 
+  <script src="js/TweenMax.min.js"></script> 
+  <script src="js/howler.js"></script> 
+  <script src="js/app.min.js"></script> 
+  <script language="javascript">
+		var mebtnopenurl = 'http://www.lehetj.com/game/html5';
+		window.shareData = {
+		        "imgUrl": "http://www.lehetj.com/game/html5youxi/qqppp/icon.png",
+		        "timeLineLink": "http://www.lehetj.com/game/html5youxi/qqppp/",
+		        "tTitle": "联合大作战",
+		        "tContent": "联合大作战"
+		};
+				
+		function goHome(){
+			window.location=mebtnopenurl;
+		}
+		function clickMore(){
+			if((window.location+"").indexOf("f=zf",1)>0){
+				window.location = "http://www.lehetj.com/game/html5";
+			 }
+			 else{
+				goHome();
+			 }
+		}
+		function dp_share(){
+			document.getElementById("share").style.display="";
+			
+		}
+		function dp_Ranking(){
+			window.location=mebtnopenurl;
+		}
+
+		function showAd(){
+		}
+		function hideAd(){
+		}
+	 
+		document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+		    
+		    WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+		        WeixinJSBridge.invoke('sendAppMessage', {
+		            "img_url": window.shareData.imgUrl,
+		            "link": window.shareData.timeLineLink,
+		            "desc": window.shareData.tContent,
+		            "title": window.shareData.tTitle
+		        }, onShareComplete);
+		    });
+
+		    WeixinJSBridge.on('menu:share:timeline', function(argv) {
+		        WeixinJSBridge.invoke('shareTimeline', {
+		            "img_url": window.shareData.imgUrl,
+		            "img_width": "640",
+		            "img_height": "640",
+		            "link": window.shareData.timeLineLink,
+		            "desc": window.shareData.tContent,
+		            "title": window.shareData.tTitle
+		        }, onShareComplete);
+		    });
+		}, false);
+		</script> 
+  <div id="share" style="display: none"> 
+   <img width="100%" src="share.png" style="position: fixed; z-index: 9999; top: 0; left: 0; display: " ontouchstart="document.getElementById('share').style.display='none';" /> 
+  </div> 
+  <script type="text/javascript">
+            var myData = { gameid: "qqppp" };
+			 //var domain = ["oixm.cn", "hiemma.cn", "peagame.net"][parseInt(Math.random() * 3)];
+			//window.shareData.timeLineLink = "http://"+ parseInt(Math.random()*100000) +"."+ myData.gameid +"."+domain+"/gamecenter.html?gameid=" + myData.gameid + (localStorage.myuid ? "&uid=" + localStorage.myuid : "");
+			function dp_submitScore(score){
+						myData.score = parseInt(score);
+						myData.scoreName ="获得"+score+"分";
+
+						document.title = window.shareData.tTitle = "我玩《联合大作战》得了"+score+"分，气球爱消除，快来一起玩吧！";
+
+						// cynthia begin
+						if(score>12000){
+							// alert(score)
+							document.getElementById('cynthia-s').style.display = "block"
+						}	
+						if(score<=12000){
+							// alert(score)
+							document.getElementById('cynthia-f').style.display = "block"
+						}	
+						// cynthia end
+			}
+			function onShareComplete(res) {
+               // rank(myData.score);
+	        }
+			</script> 
+
+
+
+
+<div class="cynthia cynthia-s" id="cynthia-s" style="display:none">
+			<div class="wuqian1">
+				<h1>挑战成功!</h1>
+				<a href="" class="a1"></a>
+			</div>
+		</div>
+		<div class="cynthia cynthia-f" id="cynthia-f" style="display:none">
+			<div class="wuqian2">
+				<h1>挑战失败</h1>
+				<a href="index.html" class="a2"></a><br>
+				<a href="../../../support.html" class="a3"></a>
+			</div>
+		</div>
+
+
+
+
+ </body>
+</html>
